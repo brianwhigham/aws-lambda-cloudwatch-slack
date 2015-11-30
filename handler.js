@@ -22,8 +22,7 @@ var ALARM_CONFIG = [
 ];
 
 var SLACK_CONFIG = {
-	token: "YOUR_TOKEN",
-	team: "YOUR_TEAM"
+	webhookUrl: "https://hooks.slack.com/services/Txxxxxxxx/xxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx"
 };
 
 var http = require ('https');
@@ -90,10 +89,11 @@ exports.handler = function(event, context) {
 	  "payload": payloadStr
 	});
 	console.log(postData);
+	var webhookUrl = /.*services(.*)/.exec(SLACK_CONFIG.webhookUrl)
 	var options = {
-		hostname: SLACK_CONFIG.team + ".slack.com",
+		hostname: "hooks.slack.com",
 		port: 443,
-		path: '/services/hooks/incoming-webhook?token='+SLACK_CONFIG.token,
+		path: webhookUrl[0],
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
