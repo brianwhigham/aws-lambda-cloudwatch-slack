@@ -89,7 +89,7 @@ exports.handler = function(event, context) {
 	  "payload": payloadStr
 	});
 	console.log(postData);
-	var webhookUrl = /.*services(.*)/.exec(SLACK_CONFIG.webhookUrl)
+	var webhookUrl = /.*(\/services\/.*)/.exec(SLACK_CONFIG.webhookUrl)
 	var options = {
 		hostname: "hooks.slack.com",
 		port: 443,
