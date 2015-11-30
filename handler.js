@@ -5,16 +5,30 @@ console.log('[Amazon CloudWatch Notification]');
  add any conditions here
 */
 var ALARM_CONFIG = [
+    {
+		condition: "ALARM",
+		channel: "#sa-critical",
+		mention: "<@channel> ",
+		color: "#F35A00",
+		severity: "CRITICAL"
+	},
 	{
 		condition: "INFO",
-		channel: "#test",
+		channel: "#sa-warn",
+		mention: " ",
+		color: "#FF9F21",
+		severity: "INFO"
+	},	
+	{
+		condition: "OK",
+		channel: "#sa-critical",
 		mention: " ",
 		color: "#FF9F21",
 		severity: "INFO"
 	},
 	{
 		condition: "CRITICAL",
-		channel: "#general",
+		channel: "#sa-critical",
 		mention: "<@channel> ",
 		color: "#F35A00",
 		severity: "CRITICAL"
